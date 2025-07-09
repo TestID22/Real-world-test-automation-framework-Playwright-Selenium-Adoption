@@ -1,7 +1,7 @@
+from abc import ABC
 
 
-
-class BasePage:
+class BasePage(ABC):
 
 
     def __init__(self):
