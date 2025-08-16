@@ -4,4 +4,4 @@
 
 
 def test_one(browser):
-    browser.open("http://seleniumhq.org")
+    browser.get("https://www.google.com")

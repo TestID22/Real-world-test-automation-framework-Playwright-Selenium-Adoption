@@ -1,11 +1,12 @@
 import pytest
 
-from framework.browser.BaseBrowserManager import BaseBrowserManager
+from configuration.constants.Browser import Browser
+from configuration.dynamic_imports import BrowserManager
+
 
 
 @pytest.fixture(scope='session')
-def browser(request) -> BaseBrowserManager:
-
-    browser = BaseBrowserManager.init_browser()
+def browser(request):
+    browser = BrowserManager().init_browser(browser=Browser.FIREFOX, headless=False)
     return browser
 
