@@ -8,3 +8,7 @@ class BaseBrowserManager(ABC):
     def init_browser(cls, instance_key=None, **kwargs):
         pass
 
+    @classmethod
+    @abstractmethod
+    def close_browser(cls):
+        pass
