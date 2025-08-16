@@ -1,3 +1,5 @@
+from selenium.webdriver.chrome.webdriver import WebDriver
+
 from configuration.constants.Browser import Browser
 from framework.browser.BaseBrowserManager import BaseBrowserManager
 from framework.browser.selenium.SeleniumBrowserFactory import SeleniumBrowserFactory
@@ -7,7 +9,31 @@ class SeleniumBrowserManager(BaseBrowserManager):
     """
     to initialize driver
     """
-    def init_browser(self, browser=Browser.CHROME, headless=False, **kwargs):
+    driver = None
+
+    @classmethod
+    def init_browser(cls, instance_key=None, driver=driver, browser=None, headless=False, **kwargs):
         driver = SeleniumBrowserFactory.get_browser_driver(browser=browser, headless=headless, **kwargs)
+
+        cls._browsers[instance_key] = driver
         return driver
 
+    @classmethod
+    def get_driver(cls) -> WebDriver:
+        """Returns the main driver (WebDriver) for the current instance."""
+        instance_key = cls._get_active_driver_key()
+        return cls._browsers[instance_key] if instance_key else None
+
+    @classmethod
+    def close_browser(cls):
+        if cls.driver:
+            cls.driver.quit()
+            cls.driver = None
+
+    @classmethod
+    def get_driver(cls):
+        return cls.driver
+
+    @classmethod
+    def open_url(cls, url):
+        cls.driver.get(url)

@@ -1,7 +1,6 @@
-
-
-
+from pages.GooglePage import GooglePage
 
 
 def test_one(browser):
-    browser.get("https://www.google.com")
+    google = GooglePage()
+    google.open_new_window("https://www.google.com")
