@@ -4,4 +4,4 @@
 
 
 def test_one(browser):
-    browser.get("https://www.google.com")
+    browser.goto("https://www.google.com")

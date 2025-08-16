@@ -1,5 +1,5 @@
 from configuration.constants.Browser import Browser
-from framework.browser.BaseBrowserFactory import BrowserFactoryBase
+from framework.browser.BaseBrowserFactory import BaseBrowserFactory
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -10,7 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
 
-class SeleniumBrowserFactory(BrowserFactoryBase):
+class SeleniumBrowserFactory(BaseBrowserFactory):
     """
     To set up driver
     """
