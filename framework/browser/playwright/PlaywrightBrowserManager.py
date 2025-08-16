@@ -3,6 +3,8 @@ from framework.browser.playwright.PlaywrightBrowserFactory import PlaywrightBrow
 
 
 class PlaywrightBrowserManager(BaseBrowserManager):
+    driver = None
+
 
     @classmethod
     def init_browser(self, browser=None, headless=False, **kwargs):
@@ -14,5 +16,8 @@ class PlaywrightBrowserManager(BaseBrowserManager):
     @classmethod
     def close_browser(cls):
         """Contract for closing browser"""
-        pass
+        if cls.driver:
+            cls.driver.page.close()
+            cls.driver.browser_context.close()
+            cls.driver.page.close()
 

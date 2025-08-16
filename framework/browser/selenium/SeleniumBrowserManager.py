@@ -20,4 +20,6 @@ class SeleniumBrowserManager(BaseBrowserManager):
             cls.driver.quit()
             cls.driver = None
 
-
+    @classmethod
+    def get_driver(cls):
+        pass # TODO: find out how to deliver driver
