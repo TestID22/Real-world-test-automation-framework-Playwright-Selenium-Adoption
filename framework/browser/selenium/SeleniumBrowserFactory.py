@@ -22,14 +22,13 @@ class SeleniumBrowserFactory(BaseBrowserFactory):
             return cls.__get_chrome_driver(headless=headless)
         if browser == Browser.FIREFOX:
             return cls.__get_gecko_driver(headless=headless)
-        return ValueError
+        raise ValueError(f"Browser '{browser}' is not supported")
 
     @staticmethod
-    def __get_chrome_driver(headless: bool=False):
+    def __get_chrome_driver(headless: bool = False):
         options = ChromeOptions()
-
         if headless:
-            options.add_argument("headless")
+            options.add_argument("--headless")
         service = ChromeService(ChromeDriverManager().install())
         return webdriver.Chrome(service=service, options=options)
 

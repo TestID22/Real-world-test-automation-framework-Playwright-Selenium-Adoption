@@ -12,9 +12,13 @@ class SeleniumBrowserManager(BaseBrowserManager):
     driver = None
 
     @classmethod
-    def init_browser(cls, instance_key=None, driver=driver, browser=None, headless=False, **kwargs):
-        driver = SeleniumBrowserFactory.get_browser_driver(browser=browser, headless=headless, **kwargs)
-
+    def init_browser(cls, instance_key=None, browser=Browser.CHROME, headless=False, **kwargs):
+        driver = SeleniumBrowserFactory.get_browser_driver(
+            browser=browser,
+            headless=headless,
+            **kwargs
+        )
+        cls.driver = driver
         cls._browsers[instance_key] = driver
         return driver
 
@@ -29,10 +33,6 @@ class SeleniumBrowserManager(BaseBrowserManager):
         if cls.driver:
             cls.driver.quit()
             cls.driver = None
-
-    @classmethod
-    def get_driver(cls):
-        return cls.driver
 
     @classmethod
     def open_url(cls, url):

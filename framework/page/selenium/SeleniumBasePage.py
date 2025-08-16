@@ -13,9 +13,10 @@ class SeleniumBasePage(BasePage):
     """Base class for all page objects in Selenium."""
 
     def driver(self):
-        return SeleniumBrowserManager.get_driver()
+        return SeleniumBrowserManager.driver
 
     def open_new_window(self, url):
-        self.driver.get(url)
+        self.driver().get(url)
+
 
 
