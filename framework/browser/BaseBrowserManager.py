@@ -5,6 +5,6 @@ class BaseBrowserManager(ABC):
 
     @classmethod
     @abstractmethod
-    def start_browser(cls, key):
+    def init_browser(cls, instance_key=None, **kwargs):
         pass
 
