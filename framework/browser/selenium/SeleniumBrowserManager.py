@@ -4,6 +4,6 @@ from framework.browser.BaseBrowserManager import BaseBrowserManager
 
 class SeleniumBrowserManager(BaseBrowserManager):
 
-    def init_browser(cls, browser=None, headless=False, **kwargs):
+    def init_browser(self, browser=None, headless=False, **kwargs):
         driver = BaseBrowserFactory.get_browser_driver(browser=browser, headless=headless, **kwargs)
         return driver
