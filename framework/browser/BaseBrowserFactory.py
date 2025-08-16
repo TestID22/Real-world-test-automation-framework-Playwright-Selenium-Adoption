@@ -10,3 +10,4 @@ class BrowserFactoryBase(ABC):
     def get_browser_driver(self, browser=None, headless=False, **kwargs):
         """Contract for getting a browser driver instance"""
         pass
+
