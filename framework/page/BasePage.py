@@ -9,36 +9,13 @@ from selenium.common.exceptions import TimeoutException
 class BasePage(ABC):
     """Base class for all page objects in Selenium."""
 
-    # ------------------------
-    # Page navigation
-    # ------------------------
     @abstractmethod
-    def open_url(self, url: str):
+    def driver(self):
         pass
 
-    # ------------------------
-    # Element interactions
-    # ------------------------
+    @staticmethod
     @abstractmethod
-    def find_element(self, locator: tuple):
+    def open_new_window(url):
         pass
 
-    @abstractmethod
-    def click(self, locator: tuple):
-        pass
 
-    @abstractmethod
-    def send_keys(self, locator: tuple, text: str, clear_first: bool = True):
-        pass
-
-    @abstractmethod
-    def get_text(self, locator: tuple) -> str:
-        pass
-
-    @abstractmethod
-    def is_visible(self, locator: tuple) -> bool:
-        pass
-
-    @abstractmethod
-    def is_present(self, locator: tuple) -> bool:
-        pass
