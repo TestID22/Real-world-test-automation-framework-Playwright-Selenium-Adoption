@@ -19,14 +19,14 @@ class PlaywrightBrowserFactory(BaseBrowserFactory):
     def get_browser_driver(cls, headless=False, **kwargs):
         playwright = sync_playwright().start()
 
-        browser = cls.__get_chromre_driver(playwright=playwright, headless=headless, **kwargs)
+        browser = cls.__get_chrome_driver(playwright=playwright, headless=headless, **kwargs)
         browser_context = browser.new_context()
         page = browser.new_page()
 
         return PlaywrightBrowserInstance(browser=browser, page=page, browser_context=browser_context)
 
     @classmethod
-    def __get_chromre_driver(cls, playwright, headless=False, **kwargs):
+    def __get_chrome_driver(cls, playwright, headless=False, **kwargs):
         chrome_browser = playwright.chromium.launch(headless=headless, **kwargs)
         return chrome_browser
 
