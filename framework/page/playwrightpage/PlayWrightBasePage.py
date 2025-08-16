@@ -9,6 +9,6 @@ class PlayWrightBasePage(BasePage):
         return PlaywrightBrowserManager
 
     def open_new_window(self, url):
-        self.driver().driver.page.goto(url)
+        self.driver().driver_instance.goto(url)
 
 

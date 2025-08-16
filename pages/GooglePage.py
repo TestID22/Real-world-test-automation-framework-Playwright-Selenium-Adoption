@@ -1,5 +1,6 @@
 from framework.elements.selenium.SeleniumBasePageElement import SeleniumBasePageElement as Element
 from framework.page.BasePage import BasePage
+from framework.page.playwrightpage.PlayWrightBasePage import PlayWrightBasePage
 from framework.page.selenium.SeleniumBasePage import SeleniumBasePage
 
 
@@ -7,7 +8,7 @@ class GooglePageElements:
     google_search_input = Element()
 
 
-class GooglePage(SeleniumBasePage):
+class GooglePage(PlayWrightBasePage):
 
     @property
     def click(self):

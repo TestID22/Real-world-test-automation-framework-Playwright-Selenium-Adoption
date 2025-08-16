@@ -3,21 +3,22 @@ from framework.browser.playwright.PlaywrightBrowserFactory import PlaywrightBrow
 
 
 class PlaywrightBrowserManager(BaseBrowserManager):
-    driver = None
-
+    driver_instance = None
+    playwright_instance = None
 
     @classmethod
-    def init_browser(self, browser=None, headless=False, **kwargs):
+    def init_browser(cls, browser=None, headless=False, **kwargs):
         """Contract for getting a browser driver instance"""
 
         driver = PlaywrightBrowserFactory.get_browser_driver(headless=headless, **kwargs)
+        cls.driver_instance = driver.page
+        cls.playwright_instance = driver
         return driver.page
 
     @classmethod
     def close_browser(cls):
-        """Contract for closing browser"""
-        if cls.driver:
-            cls.driver.page.close()
-            cls.driver.browser_context.close()
-            cls.driver.page.close()
-
+        """Contract for closing browser. Abstract method implementation."""
+        if cls.playwright_instance:
+            cls.playwright_instance.page.close()
+            cls.playwright_instance.browser_context.close()
+            cls.playwright_instance.browser.close()
