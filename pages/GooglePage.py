@@ -1,18 +1,16 @@
-from framework.elements.selenium.SeleniumBasePageElement import SeleniumBasePageElement as Element
-from framework.page.BasePage import BasePage
-from framework.page.playwrightpage.PlayWrightBasePage import PlayWrightBasePage
-from framework.page.selenium.SeleniumBasePage import SeleniumBasePage
+from selenium.webdriver.common.by import By
+from configuration.dynamic_imports import Page
 
 
 class GooglePageElements:
-    google_search_input = Element()
+    google_search_input = (By.XPATH, '//input[@id="search"]', "Google Search Input")
 
 
-class GooglePage(BasePage):
+class GooglePage(Page):
 
-    @staticmethod
-    def open_new_window(url):
-        pass
+    def __init__(self):
+        super().__init__(By.XPATH, "//title[text()='Google']", "google_start_page")
+
 
 
 # class GooglePageClicks(Element):
