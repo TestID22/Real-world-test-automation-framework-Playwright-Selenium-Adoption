@@ -8,10 +8,10 @@ class GooglePageElements:
     google_search_input = Element()
 
 
-class GooglePage(PlayWrightBasePage):
+class GooglePage(BasePage):
 
-    @property
-    def click(self):
+    @staticmethod
+    def open_new_window(url):
         pass
 
 
