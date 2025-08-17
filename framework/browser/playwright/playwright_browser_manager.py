@@ -1,5 +1,5 @@
-from framework.browser.BaseBrowserManager import BaseBrowserManager
-from framework.browser.playwright.PlaywrightBrowserFactory import PlaywrightBrowserFactory
+from framework.browser.base_browser_manager import BaseBrowserManager
+from framework.browser.playwright.playwright_browser_factory import PlaywrightBrowserFactory
 
 
 class PlaywrightBrowserManager(BaseBrowserManager):

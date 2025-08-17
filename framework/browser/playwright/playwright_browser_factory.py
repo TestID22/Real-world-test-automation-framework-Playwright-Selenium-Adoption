@@ -1,4 +1,4 @@
-from framework.browser.BaseBrowserFactory import BaseBrowserFactory
+from framework.browser.base_browser_factory import BaseBrowserFactory
 from playwright.sync_api import BrowserContext, Page, Browser, sync_playwright
 
 

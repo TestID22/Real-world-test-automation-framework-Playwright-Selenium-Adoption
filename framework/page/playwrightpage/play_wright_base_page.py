@@ -1,5 +1,5 @@
-from framework.browser.playwright.PlaywrightBrowserManager import PlaywrightBrowserManager
-from framework.page.BasePage import BasePage
+from framework.browser.playwright.playwright_browser_manager import PlaywrightBrowserManager
+from framework.page.base_page import BasePage
 
 
 class PlayWrightBasePage(BasePage):

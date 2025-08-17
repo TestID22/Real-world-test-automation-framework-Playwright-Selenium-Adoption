@@ -1,8 +1,8 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 from configuration.constants.Browser import Browser
-from framework.browser.BaseBrowserManager import BaseBrowserManager
-from framework.browser.selenium.SeleniumBrowserFactory import SeleniumBrowserFactory
+from framework.browser.base_browser_manager import BaseBrowserManager
+from framework.browser.selenium.selenium_browser_factory import SeleniumBrowserFactory
 
 
 class SeleniumBrowserManager(BaseBrowserManager):

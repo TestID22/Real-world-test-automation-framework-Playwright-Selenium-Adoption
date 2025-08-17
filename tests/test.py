@@ -1,4 +1,4 @@
-from pages.GooglePage import GooglePage
+from pages.google_page import GooglePage
 
 
 def test_one(browser):

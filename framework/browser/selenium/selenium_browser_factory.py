@@ -1,5 +1,5 @@
 from configuration.constants.Browser import Browser
-from framework.browser.BaseBrowserFactory import BaseBrowserFactory
+from framework.browser.base_browser_factory import BaseBrowserFactory
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService

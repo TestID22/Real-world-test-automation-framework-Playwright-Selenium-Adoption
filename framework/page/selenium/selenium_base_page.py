@@ -1,5 +1,5 @@
-from framework.browser.selenium.SeleniumBrowserManager import SeleniumBrowserManager
-from framework.page.BasePage import BasePage
+from framework.browser.selenium.selenium_browser_manager import SeleniumBrowserManager
+from framework.page.base_page import BasePage
 
 class SeleniumBasePage(BasePage):
     """Base class for all page objects in Selenium."""
