@@ -9,4 +9,4 @@ class SeleniumBasePage(BasePage):
         return SeleniumBrowserManager.driver
 
     def open_new_window(self, url):
-        self.driver().get(url)
+        self.driver.get(url)
