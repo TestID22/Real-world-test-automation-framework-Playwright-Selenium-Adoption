@@ -9,6 +9,11 @@ from selenium.common.exceptions import TimeoutException
 class BasePage(ABC):
     """Base class for all page objects in Selenium."""
 
+    def __init__(self, search_condition, locator, page_name):
+        self.locator = locator
+        self.search_condition = search_condition
+        self.page_name = page_name
+
     @abstractmethod
     def driver(self):
         pass
