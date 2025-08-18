@@ -27,8 +27,10 @@ class SeleniumBrowserFactory(BaseBrowserFactory):
     @staticmethod
     def __get_chrome_driver(headless: bool = False):
         options = ChromeOptions()
+
         if headless:
             options.add_argument("--headless")
+
         service = ChromeService(ChromeDriverManager().install())
         return webdriver.Chrome(service=service, options=options)
 

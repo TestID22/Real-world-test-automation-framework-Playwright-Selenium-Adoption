@@ -12,15 +12,22 @@ class SeleniumBrowserManager(BaseBrowserManager):
     driver = None
 
     @classmethod
-    def init_browser(cls, instance_key=None, browser=Browser.CHROME, headless=False, **kwargs):
+    def init_browser(cls, instance_key=None, browser=Browser.CHROME, headless=False, full_screen=True, **kwargs):
         driver = SeleniumBrowserFactory.get_browser_driver(
             browser=browser,
             headless=headless,
             **kwargs
         )
+
         cls.driver = driver
         cls._browsers[instance_key] = driver
+        cls._active_driver = driver
+
+        if full_screen:
+            cls.driver.maximize_window()
+
         return driver
+
 
     @classmethod
     def get_driver(cls) -> WebDriver:
@@ -33,6 +40,7 @@ class SeleniumBrowserManager(BaseBrowserManager):
         if cls.driver:
             cls.driver.quit()
             cls.driver = None
+            cls._active_driver = None
 
     @classmethod
     def open_url(cls, url):
