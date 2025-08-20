@@ -22,3 +22,4 @@ class PlaywrightBrowserManager(BaseBrowserManager):
             cls.playwright_instance.page.close()
             cls.playwright_instance.browser_context.close()
             cls.playwright_instance.browser.close()
+
