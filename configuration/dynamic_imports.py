@@ -3,7 +3,7 @@ import dotenv
 
 dotenv.load_dotenv()
 
-test_framework = os.getenv("TEST_FRAMEWORK")
+test_framework = os.getenv("TEST_FRAMEWORK").lower()
 
 if test_framework == "selenium":
 
