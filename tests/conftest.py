@@ -9,7 +9,7 @@ def browser():
     driver = None
     try:
         if BrowserManager is SeleniumBrowserManager:
-            driver = BrowserManager.init_browser(instance_key="main", headless=False)
+            driver = BrowserManager.init_browser(instance_key=1, headless=False)
             print('Browser Initialized')
             print(f'Test framework is Selenium')
             yield driver

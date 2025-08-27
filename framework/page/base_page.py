@@ -13,9 +13,17 @@ class BasePage(ABC):
     def driver(self):
         pass
 
+    # @staticmethod
+    # @abstractmethod
+    # def wait_page_to_load():
+    #     pass
+
+    # @staticmethod
+    # @abstractmethod
+    # def is_opened(self, wait_attempts: int = 1):
+    #     pass
+
     @staticmethod
     @abstractmethod
-    def open_new_window(url):
+    def open_url(url):
         pass
-
-

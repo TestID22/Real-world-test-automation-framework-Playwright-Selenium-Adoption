@@ -1,13 +1,14 @@
-from selenium.webdriver.common.by import By
+from abc import ABC
 
-from configuration.dynamic_imports import Page
+from configuration.dynamic_imports import BasePage
 from configuration.dynamic_imports import DynamicPageElement
 
 
 class GooglePageElements:
     search_input = DynamicPageElement("//*[@name='q']", "search_input")
 
-class GooglePage(Page):
+class GooglePage(BasePage):
+
     def __init__(self):
         super().__init__("xpath", "//title[text()='Google']", "google_start_page")
 
