@@ -4,11 +4,16 @@ from framework.api.People import People
 from pages.GooglePage import GooglePage
 
 # ----------------------------------------------------------------------------------------------------------------------
-@pytest.mark.xfail(reason="just because")
-def test_one(browser):
+# @pytest.mark.xfail(reason="just because")
+def test_web_test(browser):
+    # Page Object
     google = GooglePage()
-    google.open_new_window("https://www.google.com")
-# ----------------------------------------------------------------------------------------------------------------------
+    google.open_url("https://www.google.com")
+# ----------------------------------------------------------------------------------------------------------------------\
+def test_static_page_open(browser):
+    GooglePage().open_url("https://www.google.com")
+    assert GooglePage().driver.title == "Google", "Title is wrong"
+#-----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.regression
 def test_api():
     expected_name = "Luke Skywalker".lower()

@@ -19,15 +19,12 @@ class SeleniumBrowserManager(BaseBrowserManager):
             **kwargs
         )
 
-        cls.driver = driver
         cls._browsers[instance_key] = driver
         cls._active_driver = driver
 
         if full_screen:
-            cls.driver.maximize_window()
-
+            cls._browsers[instance_key].maximize_window()
         return driver
-
 
     @classmethod
     def get_driver(cls) -> WebDriver:
@@ -35,13 +32,18 @@ class SeleniumBrowserManager(BaseBrowserManager):
         instance_key = cls._get_active_driver_key()
         return cls._browsers[instance_key] if instance_key else None
 
+    # close_browser:
+    #   - Gets the current active driver key
+    #   - Quits the corresponding browser instance
+    #   - Resets cls.driver and cls._active_driver to None
     @classmethod
     def close_browser(cls):
-        if cls.driver:
-            cls.driver.quit()
-            cls.driver = None
+        instance_key = cls._get_active_driver_key()
+        if cls._browsers[instance_key]:
+            cls._browsers[instance_key].quit()
+            cls.driver_instance = None
             cls._active_driver = None
 
     @classmethod
     def open_url(cls, url):
-        cls.driver.get(url)
+        cls.get_driver().get(url)

@@ -1,12 +1,16 @@
+from selenium.webdriver.chrome.webdriver import WebDriver
+
 from framework.browser.selenium.selenium_browser_manager import SeleniumBrowserManager
 from framework.page.base_page import BasePage
+
 
 class SeleniumBasePage(BasePage):
     """Base class for all page objects in Selenium."""
 
-    @property
-    def driver(self):
-        return SeleniumBrowserManager.driver
+    @staticmethod
+    def open_url(url):
+        SeleniumBrowserManager.open_url(url)
 
-    def open_new_window(self, url):
-        self.driver.get(url)
+    @property
+    def driver(self) -> WebDriver:
+        return SeleniumBrowserManager.get_driver()

@@ -8,7 +8,7 @@ test_framework = os.getenv("TEST_FRAMEWORK").lower()
 if test_framework == "selenium":
 
     from framework.browser.selenium.selenium_browser_manager import SeleniumBrowserManager as BrowserManager
-    from framework.page.selenium.selenium_base_page import SeleniumBasePage as Page
+    from framework.page.selenium.selenium_base_page import SeleniumBasePage as BasePage
     from framework.elements.selenium.selenium_base_page_element import SeleniumBasePageElement as DynamicPageElement
 
 elif test_framework == "playwright":
