@@ -7,6 +7,7 @@ from framework.page.base_page import BasePage
 class SeleniumBasePage(BasePage):
     """Base class for all page objects in Selenium."""
 
+    # call is in SelenBasePage
     @staticmethod
     def open_url(url):
         SeleniumBrowserManager.open_url(url)

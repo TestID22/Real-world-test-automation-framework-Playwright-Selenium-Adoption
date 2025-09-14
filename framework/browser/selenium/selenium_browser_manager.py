@@ -44,6 +44,7 @@ class SeleniumBrowserManager(BaseBrowserManager):
             cls.driver_instance = None
             cls._active_driver = None
 
+    # Implementation in sbm
     @classmethod
     def open_url(cls, url):
         cls.get_driver().get(url)
