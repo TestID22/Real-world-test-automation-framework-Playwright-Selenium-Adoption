@@ -9,7 +9,7 @@ class SeleniumBrowserManager(BaseBrowserManager):
     """
     to initialize driver
     """
-    driver = None
+    _driver = None
 
     @classmethod
     def init_browser(cls, instance_key=None, browser=Browser.CHROME, headless=False, full_screen=True, **kwargs):
@@ -18,9 +18,12 @@ class SeleniumBrowserManager(BaseBrowserManager):
             headless=headless,
             **kwargs
         )
+        if instance_key is None:
+            instance_key = 1
 
         cls._browsers[instance_key] = driver
         cls._active_driver = driver
+        _driver = driver
 
         if full_screen:
             cls._browsers[instance_key].maximize_window()
