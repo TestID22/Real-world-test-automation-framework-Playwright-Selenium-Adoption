@@ -23,3 +23,12 @@ class PlaywrightBrowserManager(BaseBrowserManager):
             cls.playwright_instance.browser_context.close()
             cls.playwright_instance.browser.close()
 
+    @classmethod
+    def get_driver(cls):
+        """Returns the main driver (WebDriver) for the current instance."""
+        instance_key = cls._get_active_driver_key()
+        return cls._browsers[instance_key] if instance_key else None
+
+    @classmethod
+    def open_url(cls, url):
+        cls.get_driver().get(url)

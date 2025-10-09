@@ -1,5 +1,3 @@
-from abc import ABC
-
 from configuration.dynamic_imports import BasePage
 from configuration.dynamic_imports import DynamicPageElement
 

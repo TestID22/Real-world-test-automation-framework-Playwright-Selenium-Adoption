@@ -1,17 +1,17 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-from framework.elements.base_page_element import BasePageElement
 from configuration.dynamic_imports import BrowserManager
+from framework.elements.base_page_element import BasePageElement
 
-class SeleniumBasePageElement(BasePageElement):
+
+class PlayWrightPageElement(BasePageElement):
 
     def locator(self):
         return super()._locator
 
     @property
-    def driver(self) -> WebDriver:
+    def driver(self):
         driver = BrowserManager.get_driver()
         if driver is None:
             raise Exception("webdriver error")

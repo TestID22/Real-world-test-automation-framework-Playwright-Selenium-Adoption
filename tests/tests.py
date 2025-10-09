@@ -11,8 +11,11 @@ def test_web_test(browser):
     google.open_url("https://www.google.com")
 # ----------------------------------------------------------------------------------------------------------------------\
 def test_static_page_open(browser):
-    GooglePage().open_url("https://www.google.com")
-    assert GooglePage().driver.title == "Google", "Title is wrong"
+    # page object
+    google_page = GooglePage()
+
+    google_page.open_url("https://www.google.com")
+    assert google_page.driver.title == "Google", "Title is wrong"
 #-----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.regression
 def test_api():
