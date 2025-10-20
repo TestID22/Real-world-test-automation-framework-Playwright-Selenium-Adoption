@@ -15,3 +15,6 @@ class SeleniumBasePage(BasePage):
     @property
     def driver(self) -> WebDriver:
         return SeleniumBrowserManager.get_driver()
+
+    def get_page_title(self):
+        return self.driver.title

@@ -27,3 +27,7 @@ class BasePage(ABC):
     @abstractmethod
     def open_url(url):
         pass
+
+    @abstractmethod
+    def get_page_title(self):
+        pass

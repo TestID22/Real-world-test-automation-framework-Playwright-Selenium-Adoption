@@ -10,5 +10,8 @@ class PlayWrightBasePage(BasePage):
         pass
 
     @property
-    def driver(self) -> WebDriver:
+    def driver(self):
         return PlaywrightBrowserManager.get_driver()
+
+    def get_page_title(self):
+        return self.driver
