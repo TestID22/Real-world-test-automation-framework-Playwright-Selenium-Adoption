@@ -17,7 +17,6 @@ class PlayWrightPageElement(BasePageElement):
             raise Exception("webdriver error")
         return driver
 
-    def find_element(self):
-        return WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((self._search_condition, self._locator))
+    def find_element(self): ????
+        return NonImplemented
         )
