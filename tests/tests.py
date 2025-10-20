@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from framework.api.People import People
@@ -13,7 +15,8 @@ def test_web_test(browser):
 def test_google_request(browser):
     google = GooglePage()
     google.open_url("https://www.google.com")
-    google.set_search_input("TEST")
+    google.set.set_search_input("TEST")
+    time.sleep(4)
 # ----------------------------------------------------------------------------------------------------------------------
 def test_page_title(browser):
     # page object
