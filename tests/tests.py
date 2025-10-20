@@ -2,6 +2,7 @@ import time
 
 import pytest
 
+from configuration.utils.test_step import TestStep
 from framework.api.People import People
 from pages.GooglePage import GooglePage
 
@@ -10,13 +11,18 @@ from pages.GooglePage import GooglePage
 def test_web_test(browser):
     # Page Object
     google = GooglePage()
-    google.open_url("https://www.google.com")
+
+    with TestStep("1. Open Google page."):
+        google.open_url("https://www.google.com")
 # ----------------------------------------------------------------------------------------------------------------------
 def test_google_request(browser):
     google = GooglePage()
-    google.open_url("https://www.google.com")
-    google.set.set_search_input("TEST")
-    time.sleep(4)
+    with TestStep("1. Open Google page."):
+        google.open_url("https://www.google.com")
+    with TestStep("2. Make a search request."):
+        google.set.set_search_input("TEST")
+        google.elements.search_input.push_enter()
+        time.sleep(1)
 # ----------------------------------------------------------------------------------------------------------------------
 def test_page_title(browser):
     # page object

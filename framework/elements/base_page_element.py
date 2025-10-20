@@ -22,12 +22,15 @@ class BasePageElement(ABC):
     def locator(self):
         pass
 
-    """
+
     @abstractmethod
     def as_tuple(self):
         pass
-        
+
     @abstractmethod
-    def find_element(self):
+    def send_keys(self, key):
         pass
-    """
+
+    @abstractmethod
+    def push_enter(self):
+        pass

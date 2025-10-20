@@ -1,6 +1,7 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
 
 from framework.elements.base_page_element import BasePageElement
 from configuration.dynamic_imports import BrowserManager
@@ -24,3 +25,9 @@ class SeleniumBasePageElement(BasePageElement):
 
     def as_tuple(self):
         return self._search_condition, self._locator, self._element_name
+
+    def push_enter(self):
+        self.send_keys(Keys.ENTER)
+
+    def send_keys(self, key):
+        self.find_element().send_keys(key)
