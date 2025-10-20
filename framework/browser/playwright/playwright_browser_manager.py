@@ -31,4 +31,4 @@ class PlaywrightBrowserManager(BaseBrowserManager):
 
     @classmethod
     def open_url(cls, url):
-        cls.get_driver().get(url)
+        cls.driver_instance.goto(url)
