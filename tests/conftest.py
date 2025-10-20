@@ -1,4 +1,6 @@
 import pytest
+
+from configuration.constants.urls import URL
 from configuration.dynamic_imports import BrowserManager
 from framework.browser.playwright.playwright_browser_manager import PlaywrightBrowserManager
 from framework.browser.selenium.selenium_browser_manager import SeleniumBrowserManager
@@ -12,11 +14,13 @@ def browser():
             driver = BrowserManager.init_browser(instance_key=1, headless=False)
             print('Browser Initialized')
             print(f'Test framework is Selenium')
+            driver.get(URL.GOOGLE_URL)
             yield driver
         if BrowserManager is PlaywrightBrowserManager:
             driver = BrowserManager.init_browser()
             print('Browser Initialized')
             print(f'Test framework is Playwright')
+            driver.goto(URL.GOOGLE_URL)
             yield driver
     finally:
         if driver:

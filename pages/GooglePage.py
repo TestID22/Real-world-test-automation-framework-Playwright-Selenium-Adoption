@@ -8,7 +8,7 @@ class GooglePageElements:
 class GooglePage(BasePage):
 
     def __init__(self):
-        super().__init__("xpath", "//title[text()='Google']", "google_start_page")
+        super().__init__(*self.elements.search_input.as_tuple())
 
     @property
     def elements(self):

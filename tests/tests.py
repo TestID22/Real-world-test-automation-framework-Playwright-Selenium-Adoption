@@ -9,7 +9,12 @@ def test_web_test(browser):
     # Page Object
     google = GooglePage()
     google.open_url("https://www.google.com")
-# ----------------------------------------------------------------------------------------------------------------------\
+# ----------------------------------------------------------------------------------------------------------------------
+def test_google_request(browser):
+    google = GooglePage()
+    google.open_url("https://www.google.com")
+    google.set_search_input("TEST")
+# ----------------------------------------------------------------------------------------------------------------------
 def test_page_title(browser):
     # page object
     google_page = GooglePage()
