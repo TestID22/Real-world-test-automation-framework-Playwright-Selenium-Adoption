@@ -19,3 +19,6 @@ class PlayWrightPageElement(BasePageElement):
 
     def find_element(self):
         return NonImplemented
+
+    def as_tuple(self):
+        return self._search_condition, self._locator, self._element_name

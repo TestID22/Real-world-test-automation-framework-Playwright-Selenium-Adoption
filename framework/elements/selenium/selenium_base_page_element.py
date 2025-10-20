@@ -21,3 +21,6 @@ class SeleniumBasePageElement(BasePageElement):
         return WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((self._search_condition, self._locator))
         )
+
+    def as_tuple(self):
+        return self._search_condition, self._locator, self._element_name

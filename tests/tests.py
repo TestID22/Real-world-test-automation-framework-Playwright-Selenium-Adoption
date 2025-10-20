@@ -36,4 +36,8 @@ LUKE = 'luke'
 def test_first_name_person(name):
     assert name == People.get_people(1).json()['name'].lower().split()[0]
 # ----------------------------------------------------------------------------------------------------------------------
-
+# Debugging
+def test_element_representation_as_tuple_debug(browser):
+    google = GooglePage()
+    assert tuple is type(google.elements.search_input.as_tuple())
+# ----------------------------------------------------------------------------------------------------------------------

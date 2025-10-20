@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 
 class BasePageElement(ABC):
 
-
     def __init__(self, locator, element_name, search_condition=By.XPATH):
         self._search_condition = search_condition
         self._locator = locator
@@ -22,3 +21,13 @@ class BasePageElement(ABC):
     @abstractmethod
     def locator(self):
         pass
+
+    """
+    @abstractmethod
+    def as_tuple(self):
+        pass
+        
+    @abstractmethod
+    def find_element(self):
+        pass
+    """
