@@ -19,7 +19,8 @@ def test_static_page_open(browser):
     # options for Playwright and Selenium
 #-----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.regression
-def test_api():
+@pytest.mark.api
+def test_first_person():
     expected_name = "Luke Skywalker".lower()
     response = People.get_people(1)
     assert response.status_code == 200
@@ -33,7 +34,7 @@ def test_sum(a,b,result):
 LUKE = 'luke'
 
 @pytest.mark.parametrize("name", [LUKE])
-def test_sum(name):
+def test_first_name_person(name):
     assert name == People.get_people(1).json()['name'].lower().split()[0]
 # ----------------------------------------------------------------------------------------------------------------------
 
