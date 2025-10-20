@@ -15,8 +15,7 @@ def test_page_title(browser):
     google_page = GooglePage()
 
     google_page.open_url("https://www.google.com")
-    assert google_page.get_page_title() == "Google", "Title is wrong"  # TODO: move get_title to BaseClass and implement both
-    # options for Playwright and Selenium
+    assert google_page.get_page_title() == "Google", "Title is wrong"
 #-----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.regression
 @pytest.mark.api

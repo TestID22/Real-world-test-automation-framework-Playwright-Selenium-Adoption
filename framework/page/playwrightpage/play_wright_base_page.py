@@ -7,11 +7,11 @@ class PlayWrightBasePage(BasePage):
 
     @staticmethod
     def open_url(url):
-        pass
+        PlaywrightBrowserManager.driver_instance.goto(url)
 
     @property
     def driver(self):
         return PlaywrightBrowserManager.get_driver()
 
     def get_page_title(self):
-        return self.driver
+        return PlaywrightBrowserManager.driver_instance.title()
