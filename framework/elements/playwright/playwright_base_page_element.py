@@ -1,6 +1,3 @@
-from selenium.webdriver.common.keys import Keys
-from playwright.sync_api import Page, FrameLocator
-
 from configuration.dynamic_imports import BrowserManager
 from framework.elements.base_page_element import BasePageElement
 
@@ -8,7 +5,7 @@ from framework.elements.base_page_element import BasePageElement
 class PlayWrightPageElement(BasePageElement):
 
     def push_enter(self):
-        self.find_element().fill(Keys.ENTER)
+        self.driver.keyboard.down("Enter")
 
     def send_keys(self, key):
         self.find_element().fill(key)
