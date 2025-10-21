@@ -21,6 +21,6 @@ class GooglePage(BasePage):
 
 
 class GooglePageSets(PageCategory):
+
     def set_search_input(self, key):
-        input_element = self.page.elements.search_input.find_element()
-        input_element.send_keys(key)
+        self.page.elements.search_input.send_keys(key)

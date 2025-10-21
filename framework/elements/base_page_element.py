@@ -22,7 +22,6 @@ class BasePageElement(ABC):
     def locator(self):
         pass
 
-
     @abstractmethod
     def as_tuple(self):
         pass

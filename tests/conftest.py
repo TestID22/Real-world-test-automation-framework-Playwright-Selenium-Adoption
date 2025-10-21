@@ -17,7 +17,7 @@ def browser():
             driver.get(URL.GOOGLE_URL)
             yield driver
         if BrowserManager is PlaywrightBrowserManager:
-            driver = BrowserManager.init_browser()
+            driver = BrowserManager.init_browser(instance_key=1, headless=False)
             print('Browser Initialized')
             print(f'Test framework is Playwright')
             driver.goto(URL.GOOGLE_URL)

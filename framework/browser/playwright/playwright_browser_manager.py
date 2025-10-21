@@ -7,12 +7,13 @@ class PlaywrightBrowserManager(BaseBrowserManager):
     playwright_instance = None
 
     @classmethod
-    def init_browser(cls, browser=None, headless=False, **kwargs):
+    def init_browser(cls, instance_key=None, browser=None, headless=False, **kwargs):
         """Contract for getting a browser driver instance"""
 
         driver = PlaywrightBrowserFactory.get_browser_driver(headless=headless, **kwargs)
         cls.driver_instance = driver.page
         cls.playwright_instance = driver
+        cls._browsers[instance_key] = driver
         return driver.page
 
     @classmethod
@@ -26,8 +27,7 @@ class PlaywrightBrowserManager(BaseBrowserManager):
     @classmethod
     def get_driver(cls):
         """Returns the main driver (WebDriver) for the current instance."""
-        instance_key = cls._get_active_driver_key()
-        return cls._browsers[instance_key] if instance_key else None
+        return cls.driver_instance
 
     @classmethod
     def open_url(cls, url):

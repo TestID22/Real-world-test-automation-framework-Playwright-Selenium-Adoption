@@ -28,8 +28,9 @@ def test_page_title(browser):
     # page object
     google_page = GooglePage()
 
-    google_page.open_url("https://www.google.com")
-    assert google_page.get_page_title() == "Google", "Title is wrong"
+    with TestStep("1. Check the Google Title"):
+        google_page.open_url("https://www.google.com")
+        assert google_page.get_page_title() == "Google", "Title is wrong"
 #-----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.regression
 @pytest.mark.api
@@ -54,4 +55,14 @@ def test_first_name_person(name):
 def test_element_representation_as_tuple_debug(browser):
     google = GooglePage()
     assert tuple is type(google.elements.search_input.as_tuple())
+
+
+def test_google_request_1(browser):
+    google = GooglePage()
+    with TestStep("1. Open Google page."):
+        google.open_url("https://www.google.com")
+    with TestStep("2. Make a search request."):
+        google.set.set_search_input("TEST")
+        google.elements.search_input.push_enter()
+        time.sleep(1)
 # ----------------------------------------------------------------------------------------------------------------------
