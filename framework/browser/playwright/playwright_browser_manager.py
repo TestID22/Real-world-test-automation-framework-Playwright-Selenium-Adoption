@@ -11,6 +11,10 @@ class PlaywrightBrowserManager(BaseBrowserManager):
         """Contract for getting a browser driver instance"""
 
         driver = PlaywrightBrowserFactory.get_browser_driver(headless=headless, **kwargs)
+
+        if instance_key is None:
+            instance_key = 1
+
         cls.driver_instance = driver.page
         cls.playwright_instance = driver
         cls._browsers[instance_key] = driver
