@@ -1,9 +1,17 @@
+import json
+
 import pytest
 
 from configuration.constants.urls import URL
 from configuration.dynamic_imports import BrowserManager
 from framework.browser.playwright.playwright_browser_manager import PlaywrightBrowserManager
 from framework.browser.selenium.selenium_browser_manager import SeleniumBrowserManager
+
+
+@pytest.fixture(scope="session")
+def config():
+    with open("configuration/test_env.json") as f:
+        return json.load(f)
 
 
 @pytest.fixture(scope='session')
@@ -25,3 +33,4 @@ def browser():
     finally:
         if driver:
             BrowserManager.close_browser()
+

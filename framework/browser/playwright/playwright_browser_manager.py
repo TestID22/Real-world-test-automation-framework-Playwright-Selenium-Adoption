@@ -3,22 +3,22 @@ from framework.browser.playwright.playwright_browser_factory import PlaywrightBr
 
 
 class PlaywrightBrowserManager(BaseBrowserManager):
-    driver_instance = None
+    page_instance = None
     playwright_instance = None
 
     @classmethod
     def init_browser(cls, instance_key=None, browser=None, headless=False, **kwargs):
-        """Contract for getting a browser driver instance"""
+        """Contract for getting a page instance"""
 
         driver = PlaywrightBrowserFactory.get_browser_driver(headless=headless, **kwargs)
 
         if instance_key is None:
             instance_key = 1
 
-        cls.driver_instance = driver.page
+        cls.page_instance = driver.page
         cls.playwright_instance = driver
         cls._browsers[instance_key] = driver
-        return driver.page
+        return cls.page_instance
 
     @classmethod
     def close_browser(cls):
@@ -30,9 +30,9 @@ class PlaywrightBrowserManager(BaseBrowserManager):
 
     @classmethod
     def get_driver(cls):
-        """Returns the main driver (WebDriver) for the current instance."""
-        return cls.driver_instance
+        """Returns the main Page representation (Page) for the current instance."""
+        return cls.page_instance
 
     @classmethod
     def open_url(cls, url):
-        cls.driver_instance.goto(url)
+        cls.page_instance.goto(url)

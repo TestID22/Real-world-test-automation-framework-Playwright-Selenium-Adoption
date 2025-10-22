@@ -5,31 +5,36 @@ import pytest
 from configuration.utils.test_step import TestStep
 from framework.api.People import People
 from pages.GooglePage import GooglePage
+from pages.SwagLabsLoginPage import SwagLabsLoginPage
+from pages.SwagLabsProductsPage import SwagLabsProductsPage
+
 
 # ----------------------------------------------------------------------------------------------------------------------
-# @pytest.mark.xfail(reason="just because")
-def test_web_test(browser):
+# @pytest.mark.xfail(reason="just because") doesn't make sense as Starter page is set up in conftest
+# def test_web_test(browser):
+#     Page Object
+    # google = GooglePage()
+    #
+    # with TestStep("1. Open Google page."):
+    #     google.open_url("https://www.google.com") # use
+# ----------------------------------------------------------------------------------------------------------------------
+def test_login(browser, config):
     # Page Object
-    google = GooglePage()
+    swag_lab_page = SwagLabsLoginPage()
+    swag_products_page = SwagLabsProductsPage()
 
-    with TestStep("1. Open Google page."):
-        google.open_url("https://www.google.com")
-# ----------------------------------------------------------------------------------------------------------------------
-def test_google_request(browser):
-    google = GooglePage()
-    with TestStep("1. Open Google page."):
-        google.open_url("https://www.google.com")
-    with TestStep("2. Make a search request."):
-        google.set.set_search_input("TEST")
-        google.elements.search_input.push_enter()
-        time.sleep(1)
+    with TestStep("1: Login with correct credentials"):
+        swag_lab_page.login(config['test_user']["username"], config['test_user']["password"])
+        swag_lab_page.click.click_login_button()
+
+    with TestStep("2: Check that page is opened. Check for inventory Title"):
+        swag_products_page.elements.inventory_title.wait_for_text_visible("Products")
 # ----------------------------------------------------------------------------------------------------------------------
 def test_page_title(browser):
     # page object
     google_page = GooglePage()
 
     with TestStep("1. Check the Google Title"):
-        google_page.open_url("https://www.google.com")
         assert google_page.get_page_title() == "Google", "Title is wrong"
 #-----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.regression
@@ -43,7 +48,9 @@ def test_first_person():
 # ----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.parametrize("a,b,result", [(1,2,3), (5,6,11)])
 def test_sum(a,b,result):
-    assert a + b == result
+
+    with TestStep("1. Make a summation request."):
+        assert a + b == result
 # ----------------------------------------------------------------------------------------------------------------------
 LUKE = 'luke'
 
@@ -57,12 +64,4 @@ def test_element_representation_as_tuple_debug(browser):
     assert tuple is type(google.elements.search_input.as_tuple())
 
 
-def test_google_request_1(browser):
-    google = GooglePage()
-    with TestStep("1. Open Google page."):
-        google.open_url("https://www.google.com")
-    with TestStep("2. Make a search request."):
-        google.set.set_search_input("TEST")
-        google.elements.search_input.push_enter()
-        time.sleep(1)
 # ----------------------------------------------------------------------------------------------------------------------

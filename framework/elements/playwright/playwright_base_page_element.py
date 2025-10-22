@@ -1,8 +1,18 @@
 from configuration.dynamic_imports import BrowserManager
 from framework.elements.base_page_element import BasePageElement
-
+from playwright.sync_api import expect
 
 class PlayWrightPageElement(BasePageElement):
+
+    @property
+    def driver(self):
+        driver = BrowserManager.get_driver()
+        if driver is None:
+            raise Exception("webdriver error")
+        return driver
+
+    def click(self):
+        self.find_element().first.click()
 
     def push_enter(self):
         self.driver.keyboard.down("Enter")
@@ -13,15 +23,12 @@ class PlayWrightPageElement(BasePageElement):
     def locator(self):
         return super()._locator
 
-    @property
-    def driver(self):
-        driver = BrowserManager.get_driver()
-        if driver is None:
-            raise Exception("webdriver error")
-        return driver
-
     def find_element(self):
         return self.driver.locator(f"{self._search_condition}={self._locator}")
 
     def as_tuple(self):
         return self._search_condition, self._locator, self._element_name
+
+    def wait_for_text_visible(self, text):
+        locator = self.find_element()
+        expect(locator).to_have_text(text)

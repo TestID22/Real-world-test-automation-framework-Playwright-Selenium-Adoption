@@ -2,5 +2,5 @@
 
 class URL:
 
-    GOOGLE_URL = 'https://www.google.com'
+    GOOGLE_URL = 'https://www.saucedemo.com/'
 
