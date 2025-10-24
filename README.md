@@ -13,6 +13,8 @@ TODO:
  - Faker - DONE
  - GetElementS for Playwright -  Selenium -
  - Decorator try_again - DONE
+ - pydentic
+ - FastAPI
  - Allure
  - DB
  - FastAPI
