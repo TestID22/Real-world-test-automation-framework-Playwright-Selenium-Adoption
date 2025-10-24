@@ -1,3 +1,5 @@
+from playwright.sync_api import Page
+
 from framework.browser.base_browser_manager import BaseBrowserManager
 from framework.browser.playwright.playwright_browser_factory import PlaywrightBrowserFactory
 
@@ -29,7 +31,7 @@ class PlaywrightBrowserManager(BaseBrowserManager):
             cls.playwright_instance.browser.close()
 
     @classmethod
-    def get_driver(cls):
+    def get_driver(cls) -> Page:
         """Returns the main Page representation (Page) for the current instance."""
         return cls.page_instance
 

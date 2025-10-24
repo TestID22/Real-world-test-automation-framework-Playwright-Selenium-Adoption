@@ -26,7 +26,7 @@ class PlaywrightBrowserFactory(BaseBrowserFactory):
 
     @classmethod
     def __get_chrome_driver(cls, playwright, headless=False, **kwargs):
-        chrome_browser = playwright.chromium.launch(headless=headless,  args=["--start-maximized"], **kwargs) # TODO: MAXIMIZE WIN SIZE
+        chrome_browser = playwright.chromium.launch(headless=headless,  args=["--start-maximized"], **kwargs) 
         return chrome_browser
 
     @classmethod

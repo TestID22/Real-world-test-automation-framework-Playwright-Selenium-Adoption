@@ -1,22 +1,12 @@
 import time
-
 import pytest
 
 from configuration.utils.test_step import TestStep
 from framework.api.People import People
-from pages.GooglePage import GooglePage
 from pages.SwagLabsLoginPage import SwagLabsLoginPage
 from pages.SwagLabsProductsPage import SwagLabsProductsPage
 
 
-# ----------------------------------------------------------------------------------------------------------------------
-# @pytest.mark.xfail(reason="just because") doesn't make sense as Starter page is set up in conftest
-# def test_web_test(browser):
-#     Page Object
-    # google = GooglePage()
-    #
-    # with TestStep("1. Open Google page."):
-    #     google.open_url("https://www.google.com") # use
 # ----------------------------------------------------------------------------------------------------------------------
 def test_login(browser, config):
     # Page Object
@@ -30,13 +20,6 @@ def test_login(browser, config):
     with TestStep("2: Check that page is opened. Check for inventory Title"):
         swag_products_page.elements.inventory_title.wait_for_text_visible("Products")
 # ----------------------------------------------------------------------------------------------------------------------
-def test_page_title(browser):
-    # page object
-    google_page = GooglePage()
-
-    with TestStep("1. Check the Google Title"):
-        assert google_page.get_page_title() == "Google", "Title is wrong"
-#-----------------------------------------------------------------------------------------------------------------------
 @pytest.mark.regression
 @pytest.mark.api
 def test_first_person():
@@ -60,8 +43,9 @@ def test_first_name_person(name):
 # ----------------------------------------------------------------------------------------------------------------------
 # Debugging
 def test_element_representation_as_tuple_debug(browser):
-    google = GooglePage()
-    assert tuple is type(google.elements.search_input.as_tuple())
+    # Page object
+    swag_lab_page = SwagLabsLoginPage()
 
-
+    assert tuple is type(swag_lab_page.elements.username_input.as_tuple())
+    swag_lab_page.elements.username_input.execute_script("console.log('Hello World!')")
 # ----------------------------------------------------------------------------------------------------------------------

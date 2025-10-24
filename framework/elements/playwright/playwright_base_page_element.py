@@ -1,11 +1,13 @@
+from playwright.sync_api import expect
+from playwright.sync_api import Page
+
 from configuration.dynamic_imports import BrowserManager
 from framework.elements.base_page_element import BasePageElement
-from playwright.sync_api import expect
 
 class PlayWrightPageElement(BasePageElement):
 
     @property
-    def driver(self):
+    def driver(self) -> Page:
         driver = BrowserManager.get_driver()
         if driver is None:
             raise Exception("webdriver error")
@@ -32,3 +34,7 @@ class PlayWrightPageElement(BasePageElement):
     def wait_for_text_visible(self, text):
         locator = self.find_element()
         expect(locator).to_have_text(text)
+
+    def execute_script(self, script):
+        self.driver.evaluate(script)
+

@@ -23,6 +23,9 @@ class SeleniumBasePageElement(BasePageElement):
             EC.presence_of_element_located((self._search_condition, self._locator))
         )
 
+    def click(self):
+        self.find_element().click()
+
     def as_tuple(self):
         return self._search_condition, self._locator, self._element_name
 
@@ -31,3 +34,12 @@ class SeleniumBasePageElement(BasePageElement):
 
     def send_keys(self, key):
         self.find_element().send_keys(key)
+
+    def execute_script(self, script):
+        self.driver.execute_script(script)
+
+    def wait_for_text_visible(self, text, timeout=5):
+        WebDriverWait(self.driver, timeout).until(
+            EC.text_to_be_present_in_element((self._search_condition, self._locator), text)
+        )
+        return self.find_element()

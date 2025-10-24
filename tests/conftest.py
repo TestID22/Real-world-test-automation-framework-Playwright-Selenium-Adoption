@@ -1,5 +1,4 @@
 import json
-
 import pytest
 
 from configuration.constants.urls import URL
@@ -22,13 +21,13 @@ def browser():
             driver = BrowserManager.init_browser(instance_key=1, headless=False)
             print('Browser Initialized')
             print(f'Test framework is Selenium')
-            driver.get(URL.GOOGLE_URL)
+            driver.get(URL.DEMO)
             yield driver
         if BrowserManager is PlaywrightBrowserManager:
             driver = BrowserManager.init_browser(instance_key=1, headless=False)
             print('Browser Initialized')
             print(f'Test framework is Playwright')
-            driver.goto(URL.GOOGLE_URL)
+            driver.goto(URL.DEMO)
             yield driver
     finally:
         if driver:

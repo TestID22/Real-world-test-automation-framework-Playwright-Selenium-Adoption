@@ -33,3 +33,15 @@ class BasePageElement(ABC):
     @abstractmethod
     def push_enter(self):
         pass
+
+    @abstractmethod
+    def click(self):
+        pass
+
+    @abstractmethod
+    def wait_for_text_visible(self, text):
+        pass
+
+    @abstractmethod
+    def execute_script(self, script):
+        pass
