@@ -1,6 +1,6 @@
 Playwrigt/Selemium
 
-ContextManager, List Comperhensions, Decorators and so on you will find here. 
+ContextManager, List Comperhensions, Decorators, CV, Faker and so on you will find here. 
 
 
 BaseBrowserFactory - download and configures drivers. (get_gecko, get_chrome and so on) 
