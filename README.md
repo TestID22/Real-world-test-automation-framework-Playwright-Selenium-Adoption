@@ -1,9 +1,15 @@
 Playwrigt/Selemium
 
+ContextManager, List Comperhensions, Decorators, CV, Faker and so on you will find here. 
+
+
 BaseBrowserFactory - download and configures drivers. (get_gecko, get_chrome and so on) 
 BaseBrowserManager - for initializing drivers. (working in_frame, switch_browsers)
 BasePage - to work with pages
 BaseElement - to apply all element for both frameworks
 TODO: 
- - API implementation (requests) - done
- - CV lib 
+ - API implementation (requests) - DONE
+ - CV lib - 
+ - Faker - 
+ - GetElementS for Playwright -  Selenium -
+ - Decorator try_again - DONE
