@@ -1,6 +1,6 @@
-import time
 import pytest
 
+from configuration.utils.generator import generated_person
 from configuration.utils.test_step import TestStep
 from framework.api.People import People
 from pages.SwagLabsLoginPage import SwagLabsLoginPage
@@ -48,4 +48,9 @@ def test_element_representation_as_tuple_debug(browser):
 
     assert tuple is type(swag_lab_page.elements.username_input.as_tuple())
     swag_lab_page.elements.username_input.execute_script("console.log('Hello World!')")
+
+# using faker
+def test_generate_person():
+    person = next(generated_person())
+    print(person)
 # ----------------------------------------------------------------------------------------------------------------------
