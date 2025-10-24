@@ -8,5 +8,8 @@ BaseBrowserManager - for initializing drivers. (working in_frame, switch_browser
 BasePage - to work with pages
 BaseElement - to apply all element for both frameworks
 TODO: 
- - API implementation (requests) - done
- - CV lib 
+ - API implementation (requests) - DONE
+ - CV lib - 
+ - Faker - 
+ - GetElementS for Playwright -  Selenium -
+ - Decorator try_again - DONE
