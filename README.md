@@ -1,5 +1,8 @@
 Playwrigt/Selemium
 
+ContextManager, List Comperhensions, Decorators and so on you will find here. 
+
+
 BaseBrowserFactory - download and configures drivers. (get_gecko, get_chrome and so on) 
 BaseBrowserManager - for initializing drivers. (working in_frame, switch_browsers)
 BasePage - to work with pages
