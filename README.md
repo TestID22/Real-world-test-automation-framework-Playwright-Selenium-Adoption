@@ -9,7 +9,66 @@ BasePage - to work with pages
 BaseElement - to apply all element for both frameworks
 TODO: 
  - API implementation (requests) - DONE
- - CV lib - 
- - Faker - 
+ - Computer Vision lib - DONE
+ - Faker - DONE
  - GetElementS for Playwright -  Selenium -
  - Decorator try_again - DONE
+ - pydentic
+ - FastAPI
+ - Allure
+ - DB
+ - FastAPI
+ - Github Actions
+ - Docker
+ - logger
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
