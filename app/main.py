@@ -1,10 +1,12 @@
+from http import HTTPStatus
+
 import uvicorn
 from fastapi import FastAPI
 
 
 app = FastAPI()
 
-@app.get("/api/user")
+@app.get("/api/user", status_code=HTTPStatus.OK)
 def get_user():
     return {"user": "test user"}
 
