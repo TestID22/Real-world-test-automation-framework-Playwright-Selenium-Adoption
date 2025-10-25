@@ -11,3 +11,5 @@ python-dotenv==1.1.1
 PyJWT
 pytest-playwright
 Faker
+uvicorn
+fastapi
