@@ -13,14 +13,14 @@ TODO:
  - Faker - DONE
  - GetElementS for Playwright -  Selenium -
  - Decorator try_again - DONE
- - pydentic
- - FastAPI
- - Allure
- - DB
- - FastAPI
- - Github Actions
- - Docker
- - logger
+ - pydantic - to validate models
+ - FastAPI - simoke framework to create a mock beckend
+ - Allure - 
+ - sqlalchenemy,
+ - sqlmodel - allows to descrive py classes as db entities
+ - Github Actions -
+ - Docker -
+ - logger -
 
 
 
