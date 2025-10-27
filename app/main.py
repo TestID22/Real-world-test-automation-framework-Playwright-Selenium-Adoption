@@ -11,8 +11,8 @@ app = FastAPI()
 users: list[User]
 
 
-@app.get("/api/user{user_id}", status_code=HTTPStatus.OK)
-def get_user(user_id) -> User:
+@app.get("/api/users/{user_id}", status_code=HTTPStatus.OK)
+def get_user(user_id: int) -> User:
     if user_id >= len(users):
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="User not found")
     return users[user_id]
@@ -28,6 +28,6 @@ if __name__ == "__main__":
         users = json.load(f)
 
     for user in users:
-        User.mpdel_validate(user)
+        User.model_validate(user)
 
     uvicorn.run(app, host="localhost", port=8002)
