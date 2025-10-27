@@ -1,6 +1,5 @@
 import json
 
-
 import uvicorn
 from http import HTTPStatus
 from fastapi import FastAPI, HTTPException

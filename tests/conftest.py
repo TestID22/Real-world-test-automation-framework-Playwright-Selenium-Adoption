@@ -1,4 +1,6 @@
 import json
+import os
+import dotenv
 import pytest
 
 from configuration.constants.urls import URL
@@ -11,6 +13,16 @@ from framework.browser.selenium.selenium_browser_manager import SeleniumBrowserM
 def config():
     with open("configuration/test_env.json") as f:
         return json.load(f)
+
+
+@pytest.fixture(autouse=True)
+def envs():
+    dotenv.load_dotenv()
+
+
+@pytest.fixture
+def app_url():
+    return os.getenv("APPLICATION_URL")
 
 
 @pytest.fixture(scope='session')
