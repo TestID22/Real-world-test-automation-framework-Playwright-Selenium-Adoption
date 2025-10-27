@@ -4,14 +4,16 @@ import uvicorn
 from http import HTTPStatus
 from fastapi import FastAPI, HTTPException
 
-from framework.models.user import User
-from configuration.constants.APIpathes import APIpathes
+from app.models import User
+
 app = FastAPI()
 users: list[User]
 
 
 @app.get("/api/users/{user_id}", status_code=HTTPStatus.OK)
 def get_user(user_id: int) -> User:
+    if user_id <= 0:
+        raise HTTPException(status_code=HTTPStatus.UNPROCESSABLE_ENTITY, detail="User_id is invalid")
     if user_id >= len(users):
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="User not found")
     return users[user_id]

@@ -1,6 +1,6 @@
 import random
 
-from framework.models.person import Person
+from app.models import Person
 from faker import Faker
 
 faker_en = Faker("en_US")
