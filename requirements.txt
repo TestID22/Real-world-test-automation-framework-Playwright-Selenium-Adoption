@@ -13,3 +13,4 @@ pytest-playwright
 Faker
 uvicorn
 fastapi
+pydantic

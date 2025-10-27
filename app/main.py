@@ -1,15 +1,33 @@
-from http import HTTPStatus
+import json
+
 
 import uvicorn
-from fastapi import FastAPI
+from http import HTTPStatus
+from fastapi import FastAPI, HTTPException
 
+from framework.models.user import User
 
 app = FastAPI()
+users: list[User]
 
-@app.get("/api/user", status_code=HTTPStatus.OK)
-def get_user():
-    return {"user": "test user"}
+
+@app.get("/api/user{user_id}", status_code=HTTPStatus.OK)
+def get_user(user_id) -> User:
+    if user_id >= len(users):
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="User not found")
+    return users[user_id]
+
+@app.get("/api/users")
+def get_users() -> list[User]:
+    return users
 
 
 if __name__ == "__main__":
+
+    with open("users.json") as f:
+        users = json.load(f)
+
+    for user in users:
+        User.mpdel_validate(user)
+
     uvicorn.run(app, host="localhost", port=8002)
