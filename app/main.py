@@ -5,7 +5,7 @@ from http import HTTPStatus
 from fastapi import FastAPI, HTTPException
 
 from framework.models.user import User
-
+from configuration.constants.APIpathes import APIpathes
 app = FastAPI()
 users: list[User]
 
