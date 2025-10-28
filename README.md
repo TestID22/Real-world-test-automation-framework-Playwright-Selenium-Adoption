@@ -16,10 +16,10 @@ TODO:
  - pydantic - to validate models
  - FastAPI - simoke framework to create a mock beckend
  - Allure - 
- - sqlalchenemy,
+ - add sqlalchenemy, create Postgres DB
  - sqlmodel - allows to descrive py classes as db entities
- - Github Actions -
- - Docker -
+ - pack the app into the Docker
+ - put the code in Github Actions -
  - logger -
 
 
