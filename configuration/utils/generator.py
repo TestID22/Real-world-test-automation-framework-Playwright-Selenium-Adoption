@@ -1,7 +1,7 @@
 import random
-
-from app.models import Person
 from faker import Faker
+
+from app.models.person import Person
 
 faker_en = Faker("en_US")
 Faker.seed()

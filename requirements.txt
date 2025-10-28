@@ -14,5 +14,6 @@ Faker
 uvicorn
 fastapi
 pydantic
+psycopg2-binary
 sqlalchemy
 sqlmodel

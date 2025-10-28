@@ -44,4 +44,4 @@ def browser():
     finally:
         if driver:
             BrowserManager.close_browser()
-
+            

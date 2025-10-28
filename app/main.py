@@ -1,26 +1,14 @@
 import json
 
 import uvicorn
-from http import HTTPStatus
-from fastapi import FastAPI, HTTPException
-
-from app.models import User
+from fastapi import FastAPI
+from app.routes import users, status
+from app.models.user import User
 
 app = FastAPI()
+app.include_router(users.router)
+app.include_router(status.router)
 users: list[User]
-
-
-@app.get("/api/users/{user_id}", status_code=HTTPStatus.OK)
-def get_user(user_id: int) -> User:
-    if user_id <= 0:
-        raise HTTPException(status_code=HTTPStatus.UNPROCESSABLE_ENTITY, detail="User_id is invalid")
-    if user_id >= len(users):
-        raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="User not found")
-    return users[user_id]
-
-@app.get("/api/users")
-def get_users() -> list[User]:
-    return users
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 import requests
-from configuration.constants.APIpathes import APIpathes
+from configuration.constants.APIpaths import APIpaths
 
 
 class People:
@@ -7,5 +7,5 @@ class People:
 
     @staticmethod
     def get_people(people_id: int):
-        _url = f"{APIpathes.BASE_URL}{APIpathes.PEOPLE_URL}{people_id}/"
+        _url = f"{APIpaths.BASE_URL}{APIpaths.PEOPLE_URL}{people_id}/"
         return requests.get(_url)
