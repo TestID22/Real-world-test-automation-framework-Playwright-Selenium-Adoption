@@ -9,7 +9,6 @@ from app.database import users_db
 app = FastAPI()
 app.include_router(users.router)
 app.include_router(status.router)
-users: list[User]
 
 
 if __name__ == "__main__":

@@ -2,7 +2,6 @@ from http import HTTPStatus
 from fastapi import HTTPException, APIRouter
 
 from app.database import users_db
-
 from app.models.user import User
 
 users_db: list[User]
