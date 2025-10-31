@@ -10,7 +10,7 @@ BaseElement - to apply all element for both frameworks
 TODO: 
  - API implementation (requests) - DONE
  - Computer Vision lib - DONE
- - Faker - DONE
+ - Faker - to create fake test data: https://pypi.org/project/Faker/
  - GetElementS for Playwright -  Selenium -
  - Decorator try_again - DONE
  - pydantic - to validate models
