@@ -6,7 +6,7 @@ from app.models.user import User
 from sqlalchemy import create_engine
 
 
-engine = create_engine(os.getenv("DATABASE_ENGINE"), pool_size=10)
+engine = create_engine(os.getenv("DATABASE_ENGINE"))
 users_db: list[User] = []
 
 
