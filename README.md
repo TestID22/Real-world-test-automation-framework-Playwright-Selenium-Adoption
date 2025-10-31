@@ -14,7 +14,7 @@ TODO:
  - GetElementS for Playwright -  Selenium -
  - Decorator try_again - DONE
  - pydantic - to validate models
- - FastAPI - simoke framework to create a mock beckend
+ - FastAPI - simoke framework to create a mock beckend: https://fastapi.tiangolo.com/
  - Allure - 
  - add sqlalchenemy, create Postgres DB: https://www.sqlalchemy.org/
  - sqlmodel - allows to descrive py classes as db entities: https://sqlmodel.tiangolo.com/
