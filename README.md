@@ -10,14 +10,14 @@ BaseElement - to apply all element for both frameworks
 TODO: 
  - API implementation (requests) - DONE
  - Computer Vision lib - DONE
- - Faker - DONE
+ - Faker - to create fake test data: https://pypi.org/project/Faker/
  - GetElementS for Playwright -  Selenium -
  - Decorator try_again - DONE
  - pydantic - to validate models
- - FastAPI - simoke framework to create a mock beckend
+ - FastAPI - simoke framework to create a mock beckend: https://fastapi.tiangolo.com/
  - Allure - 
- - add sqlalchenemy, create Postgres DB
- - sqlmodel - allows to descrive py classes as db entities
+ - add sqlalchenemy, create Postgres DB: https://www.sqlalchemy.org/
+ - sqlmodel - allows to descrive py classes as db entities: https://sqlmodel.tiangolo.com/
  - pack the app into the Docker
  - put the code in Github Actions -
  - logger -
