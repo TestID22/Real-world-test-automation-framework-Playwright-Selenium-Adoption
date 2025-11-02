@@ -15,3 +15,11 @@ def get_users() -> Iterable[User] | None:
     with Session(engine) as session:
         statement = select(User)
         return session.exec(statement).all()
+
+
+def create_user(user: User) -> User:
+    with Session(engine) as session:
+        session.add(user)
+        session.commit()
+        session.refresh(user)
+        return user
