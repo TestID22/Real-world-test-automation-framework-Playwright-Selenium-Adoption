@@ -23,3 +23,10 @@ def create_user(user: User) -> User:
         session.commit()
         session.refresh(user)
         return user
+
+
+def delete_user(user_id: int):
+    with Session(engine) as session:
+        session.delete(get_user(user_id))
+        session.commit()
+        session.refresh(get_user(user_id))
